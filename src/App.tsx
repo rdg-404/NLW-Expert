@@ -2,9 +2,16 @@ import Logo from './assets/logo-nlw-expert.svg'
 
 export function App() {
   return (
-    <>
-      <h1>Hello world</h1>
-      <img src={Logo} alt="logo" />
-    </>
+    <div className="mx-auto max-w-6xl my-12">
+      <img src={Logo} alt="NLW Expert" />
+
+      <form>
+        <input
+          type="text"
+          placeholder="Busque em suas notas..."
+          className="w-full bg-transparent text-3xl font-semibold tracking-tight outline-none placeholder:text-slate-500"
+        />
+      </form>
+    </div>
   )
 }
