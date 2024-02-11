@@ -24,7 +24,7 @@ export function NoteCard({ note }: NoteCardProps) {
 
       <Dialog.Portal>
         <Dialog.Overlay className="inset-0 fixed bg-black/50" />
-        <Dialog.Content className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 max-w-[640px] h-[60vh] w-full bg-slate-700 rounded-md flex flex-col outline-none">
+        <Dialog.Content className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 max-w-[640px] h-[60vh] w-full overflow-hidden bg-slate-700 rounded-md flex flex-col outline-none">
           <div className=" flex flex-1 flex-col gap-3 p-5">
             <span className="text-sm font-medium text-slate-300">
               {formatDistanceToNow(note.date, {
@@ -35,6 +35,17 @@ export function NoteCard({ note }: NoteCardProps) {
 
             <p className="text-sm leading-6 text-slate-400">{note.content}</p>
           </div>
+
+          <button
+            type="button"
+            className="w-full bg-slate-800 py-4 text-center text-sm text-slate-300 outline-none font-medium group"
+          >
+            Deseja{' '}
+            <span className="text-red-400 group-hover:underline">
+              apagar essa nota
+            </span>
+            ?
+          </button>
         </Dialog.Content>
       </Dialog.Portal>
     </Dialog.Root>
