@@ -4,7 +4,7 @@ import { X } from 'lucide-react'
 export function NewNoteCard() {
   return (
     <Dialog.Root>
-      <Dialog.Trigger className="rounded-md bg-slate-700 p-5 flex flex-col text-left gap-3">
+      <Dialog.Trigger className="rounded-md bg-slate-700 p-5 flex flex-col text-left gap-3 outline-none hover:ring-2 hover:ring-slate-600 focus-visible:ring-2 focus-visible:ring-lime-400">
         <span className="text-sm font-medium text-slate-200">
           Adicionar nota
         </span>
