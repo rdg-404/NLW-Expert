@@ -1,12 +1,18 @@
 import * as Dialog from '@radix-ui/react-dialog'
 import { X } from 'lucide-react'
-import { useState } from 'react'
+import { ChangeEvent, useState } from 'react'
 
 export function NewNoteCard() {
   const [showOnboarding, setShowOnboarding] = useState(true)
 
   function handleCreateNewNote() {
     setShowOnboarding(false)
+  }
+
+  function handleContentChanged(event: ChangeEvent<HTMLTextAreaElement>) {
+    if (event.target.value === '') {
+      setShowOnboarding(true)
+    }
   }
 
   return (
@@ -37,11 +43,11 @@ export function NewNoteCard() {
 
             {showOnboarding ? (
               <p className="text-sm leading-6 text-slate-400">
-                Comece
+                Comece{' '}
                 <button className="font-medium text-lime-400 hover:underline">
                   gravando uma nota
-                </button>
-                em áudio ou se preferir utilize
+                </button>{' '}
+                em áudio ou se preferir utilize{' '}
                 <button
                   onClick={handleCreateNewNote}
                   className="font-medium text-lime-400 hover:underline"
@@ -54,6 +60,7 @@ export function NewNoteCard() {
               <textarea
                 autoFocus
                 className="text-sm leading-6 text-slate-400 bg-transparent resize-none flex-1 outline-none"
+                onChange={handleContentChanged}
               />
             )}
           </div>
