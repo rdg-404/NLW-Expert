@@ -3,18 +3,18 @@ import Logo from './assets/logo-nlw-expert.svg'
 import { NewNoteCard } from './components/new-note-card'
 import { NoteCard } from './components/note-card'
 
+interface Note {
+  id: string
+  date: Date
+  content: string
+}
+
 export function App() {
-  const [notes, setNotes] = useState([
-    {
-      id: 1,
-      date: new Date(),
-      content: 'hello world',
-    },
-  ])
+  const [notes, setNotes] = useState<Note[]>([])
 
   function onNoteCreated(content: string) {
     const newNote = {
-      id: Math.random(),
+      id: crypto.randomUUID(),
       date: new Date(),
       content,
     }
