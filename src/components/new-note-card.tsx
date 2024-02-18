@@ -27,6 +27,11 @@ export function NewNoteCard({ onNoteCreated }: newNoteCardProps) {
   function handleSaveNote(event: FormEvent) {
     event.preventDefault()
 
+    if (content === '') {
+      toast.error('A nota precisa ter algum conteúdo')
+      return
+    }
+
     onNoteCreated(content)
     setContent('')
     setShowOnboarding(true)
